@@ -75,19 +75,61 @@ include "./models/DB.php";
             $db->conn->close(); 
     }
 
-    // public static function search(){
-    //     $item = new Item();
-    //     $db = new DB();
-    //     $query = "SELECT * FROM `ikea` where `id`=". $id;
-    //     $result = $db->conn->query($query);
+    public static function getfilterParams(){
+        $params = [];
+        $db = new DB();
+        $query = "SELECT DISTINCT `category` FROM `ikea`";
+        $result = $db->conn->query($query);
 
-    //         while($row = $result->fetch_assoc()){
-    //             $item = new Item( $row['id'], $row['name'], $row['category'], $row['price'], $row['about']);
-    //         }
-    //     $db->conn->close();
-    //     return $item;
-    // }
+            while($row = $result->fetch_assoc()){
+                $params [] = $row['category'];
+            }
+        $db->conn->close();
+        return $params;
+    }
 
+    public static function search(){
+        $items = [];
+        $db = new DB();
+        $query = "SELECT * FROM `ikea`";
+
+        if ($_GET['filter'] != "") {
+            $query .= "WHERE `category` = " . $_GET['filter'];
+        }
+        
+        switch ($_GET['sort']){
+            case '1':
+                $query .= "ORDER by `price`";
+                break;
+            case '2':
+                $query .= "ORDER by `price` DESC";
+                break;
+            case '3':
+                $query .= "ORDER by `name`";
+                break;
+            case '4':
+                $query .= "ORDER by `price` DESC";
+                break;
+        }
+
+
+
+        echo $query;
+        die;
+        $result = $db->conn->query($query);
+
+            while($row = $result->fetch_assoc()){
+                $items[] = new Item ($row['id'], $row['name'], $row['category'], $row['price'], $row['about'] );
+
+            }
+        $db->conn->close();
+        return $items;
+    
+
+        
+
+
+        }
   }
 
 ?>

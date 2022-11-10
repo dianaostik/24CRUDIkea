@@ -32,6 +32,14 @@ class ItemController{
        Item::destroy($_POST['id']);
     }
 
+    public static function getfilterParams(){
+        return Item::search();
+     }
+
+
+    public static function search(){
+        return Item::getfilterParams();
+     }
 
     //  public static function search(){
     //    $item->name = $_GET['name'];
