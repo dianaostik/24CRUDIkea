@@ -26,8 +26,10 @@
             <div class="col-4"></div>
             <div class="col-8 pe-3">
                <div class="input-group pt-2">
-                <input type="search" name="search" class="form-control rounded" placeholder="..." aria-label="Search" aria-describedby="search-addon"/>
-                <button type="submit" class="btn btn-outline-primary">Ieškoti</button> 
+                <form action="" method="get" >
+                <input type="text" name="search" class="form-control rounded" placeholder="..." aria-label="Search" aria-describedby="search-addon"/>
+                <button type="submit" class="btn btn-outline-primary">Ieškoti</button>
+             </form>
             </div>    
         </div>        
         </div>
@@ -44,7 +46,7 @@
     </div>
 
 <!-- Filtravimas -->      
-<?php include "./components/search.php" ?>
+<?php include "./components/filter.php" ?>
 
 <!-- Sarasas prekiu -->
 <?php include "./components/table.php" ?>

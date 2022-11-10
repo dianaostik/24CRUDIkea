@@ -76,27 +76,41 @@ include "./models/DB.php";
     }
 
     public static function getfilterParams(){
-        $params = [];
-        $db = new DB();
-        $query = "SELECT DISTINCT `category` FROM `ikea`";
-        $result = $db->conn->query($query);
+            $params = [];
+            $db = new DB();
+            $query = "SELECT DISTINCT `category` FROM `ikea`";
+            $result = $db->conn->query($query);
 
-            while($row = $result->fetch_assoc()){
-                $params [] = $row['category'];
-            }
-        $db->conn->close();
-        return $params;
+                while($row = $result->fetch_assoc()){
+                    $params [] = $row['category'];
+                }
+            $db->conn->close();
+            return $params;
     }
 
-    public static function search(){
-        $items = [];
-        $db = new DB();
-        $query = "SELECT * FROM `ikea`";
+    public static function filter(){
+            $items = [];
+            $db = new DB();
+            $query = "SELECT * FROM `ikea`";
+            $first = true;
+            if ($_GET['filter'] != "") {
+                $first = false;
+                $query .= "WHERE `category` = " . $_GET['filter'] . " ";
+            }
+            
 
-        if ($_GET['filter'] != "") {
-            $query .= "WHERE `category` = " . $_GET['filter'];
-        }
-        
+            if ($_GET['from'] != "") {
+            $query .= (($first)? "WHERE" : "AND") . "`price` >= " . $_GET['from'] . " ";
+                $first = false;
+            }
+
+
+            if ($_GET['to'] != "") {
+                $query .= (($first)? "WHERE" : "AND") . "`price` <= " . $_GET['to'] . " ";
+                $first = false;
+         }
+
+
         switch ($_GET['sort']){
             case '1':
                 $query .= "ORDER by `price`";
@@ -114,8 +128,22 @@ include "./models/DB.php";
 
 
 
-        echo $query;
-        die;
+            echo $query;
+            die;
+            $result = $db->conn->query($query);
+
+                while($row = $result->fetch_assoc()){
+                    $items[] = new Item ($row['id'], $row['name'], $row['category'], $row['price'], $row['about'] );
+
+                }
+            $db->conn->close();
+            return $items;
+    }
+
+    public static function search(){
+        $items = [];
+        $db = new DB();
+        $query = "SELECT * FROM `ikea` where `name` like \"%" . $_GET['search'] . "%\"";
         $result = $db->conn->query($query);
 
             while($row = $result->fetch_assoc()){
@@ -124,12 +152,8 @@ include "./models/DB.php";
             }
         $db->conn->close();
         return $items;
-    
+    }
 
-        
-
-
-        }
   }
 
 ?>

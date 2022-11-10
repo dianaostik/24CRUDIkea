@@ -33,21 +33,17 @@ class ItemController{
     }
 
     public static function getfilterParams(){
-        return Item::search();
-     }
-
-
-    public static function search(){
         return Item::getfilterParams();
      }
 
-    //  public static function search(){
-    //    $item->name = $_GET['name'];
-    //    $item->category = $_POST['category'];
-    //    $item->price = $_POST['price'];
-    //    $item->about = $_POST['about'];
-    //    $item->update();
-    //  }
+
+    public static function filter(){
+        return Item::filter();
+     }
+
+     public static function search(){
+        return Item::search();
+     }
 
 }
 ?>

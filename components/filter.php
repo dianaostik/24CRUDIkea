@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <button type="submit" name="search" class="btn btn-outline-primary">Ieškoti</button>
+                        <button type="submit" name="filter" class="btn btn-outline-primary">Ieškoti</button>
                     </div>
                 </div>
             </div>

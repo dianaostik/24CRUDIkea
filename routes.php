@@ -33,11 +33,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }
 
     if($_SERVER['REQUEST_METHOD'] == "GET"){
+        if(isset($_GET['filter'])){
+            $items = ItemController::filter();
+        }
+        
         if(isset($_GET['search'])){
             $items = ItemController::search();
-            
-    
-        }else {
+        }
+        
+        if (count($_GET) == 0){
             $items = ItemController::index();
         }
     
