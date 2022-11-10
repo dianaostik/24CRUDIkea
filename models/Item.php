@@ -75,6 +75,19 @@ include "./models/DB.php";
             $db->conn->close(); 
     }
 
+    // public static function search(){
+    //     $item = new Item();
+    //     $db = new DB();
+    //     $query = "SELECT * FROM `ikea` where `id`=". $id;
+    //     $result = $db->conn->query($query);
+
+    //         while($row = $result->fetch_assoc()){
+    //             $item = new Item( $row['id'], $row['name'], $row['category'], $row['price'], $row['about']);
+    //         }
+    //     $db->conn->close();
+    //     return $item;
+    // }
+
   }
 
 ?>

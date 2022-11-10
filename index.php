@@ -29,8 +29,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         header("Location: ./index.php");
         die;
     }
-}
 
+// }
+// if(isset($_GET['search'])){
+//    $items = ItemController::search();
+  
+// }else{
+
+    
+ }
 $items = ItemController::index();
 ?>
 
@@ -46,16 +53,22 @@ $items = ItemController::index();
     <title>Document</title>
 </head>
 <body style="background-color: #F2F4F7">
+
+<form action="" method="get">
 <div class="row mb-3" >
             <div class="col-3">
         <a href="./index.php">
             <img src="./images/ikea.jpg" alt="" width="100" height="60" class="row ms-2 pt-2" >
         </a></div>
-        <div class="input-group pt-2" style= "width:400px">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
+        
+        <div class="input-group pt-2" style= "width:800px">
+            <input type="search" name="search" class="form-control rounded" placeholder="Ieškoti" aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-primary">Ieškoti</button>
+           
         </div>
 </div>
+</form>
+
     <div class="container">
         <div class="row mb-3" >
             <div class="col-1"></div>

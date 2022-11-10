@@ -32,5 +32,14 @@ class ItemController{
        Item::destroy($_POST['id']);
     }
 
+
+    //  public static function search(){
+    //    $item->name = $_GET['name'];
+    //    $item->category = $_POST['category'];
+    //    $item->price = $_POST['price'];
+    //    $item->about = $_POST['about'];
+    //    $item->update();
+    //  }
+
 }
 ?>
