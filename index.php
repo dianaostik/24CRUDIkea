@@ -47,13 +47,15 @@ $items = ItemController::index();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body style="background-color: #F2F4F7">
-
+<!-- /Search bar -->
 <form action="" method="get">
 <div class="row mb-3" >
     <div class="col-3">
@@ -65,7 +67,7 @@ $items = ItemController::index();
             <div class="col-4"></div>
             <div class="col-8 pe-3">
                <div class="input-group pt-2">
-                <input type="search" name="search" class="form-control rounded" placeholder="..." aria-label="Search" aria-describedby="search-addon" style = "background-color: #DBEAFA"/>
+                <input type="search" name="search" class="form-control rounded" placeholder="..." aria-label="Search" aria-describedby="search-addon"/>
                 <button type="submit" class="btn btn-outline-primary">Ieškoti</button> 
             </div>    
         </div>        
@@ -73,7 +75,7 @@ $items = ItemController::index();
     </div> 
 </div>
 </form>
-
+<!-- Forma isideti prekes -->
     <div class="container">
         <div class="row mb-3" >
             <div class="col-1"></div>
@@ -107,10 +109,49 @@ $items = ItemController::index();
         </div>
     </div>
 
+<!-- Filtravimas -->
+    <div class="container">
+        <div class="row mt-5" >
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" name="save" class="btn btn-outline-primary">Išsaugoti</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
 
-    
 
-
+<!-- Sarasas prekiu -->
         <table class="table">
             <thead class="table-primary">
                 <tr>
