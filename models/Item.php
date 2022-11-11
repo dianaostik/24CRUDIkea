@@ -122,7 +122,7 @@ include "./models/DB.php";
                 $query .= "ORDER by `name`";
                 break;
             case '4':
-                $query .= "ORDER by `price` DESC";
+                $query .= "ORDER by `name` DESC";
                 break;
         }
 
