@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(isset($_POST['edit'])){
     
         $item = ItemController::show();
+        $items = ItemController::index();
         $edit = true;
     }  
 
@@ -45,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $items = ItemController::index();
         }
     
-        $params = ItemController::getfilterParams();
-
+        
     }
+    $params = ItemController::getfilterParams();
     ?>

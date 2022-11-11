@@ -95,7 +95,7 @@ include "./models/DB.php";
             $first = true;
             if ($_GET['filter'] != "") {
                 $first = false;
-                $query .= "WHERE `category` = " . $_GET['filter'] . " ";
+                $query .= "WHERE `category` = '" . $_GET['filter'] . "' ";
             }
             
 
@@ -128,8 +128,8 @@ include "./models/DB.php";
 
 
 
-            echo $query;
-            die;
+            // echo $query;
+            // die;
             $result = $db->conn->query($query);
 
                 while($row = $result->fetch_assoc()){
